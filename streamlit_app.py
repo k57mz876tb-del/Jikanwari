@@ -5,12 +5,7 @@ print(now)
 import time
 alarm_time = "11:40"
 
-#while True:
-#    now = datetime.now().strftime("%H:%M")
 
-    #if now == alarm_time:
-        #print("時間")
-        #break
 
 today = datetime.now()
 w_number = today.weekday()
@@ -19,102 +14,16 @@ print(w_number)
 days = ["月","火","水","木","金","土","日",]
 print({days[w_number]})
 
-import subprocess
-import sys
-subprocess.check_call([sys.executable,"-m","pip","install","jpholiday"])
 
-import jpholiday
 from datetime import date, timedelta
-
-members = ["高見","内村","堀川","力石","松村","塩見","谷口","編塚"]
-
-# =========================
-# 芸術鑑賞の日を決める
-# =========================
 
 year = 2026
 
-art_day = date(year, 5, 28)
 
-# 土曜=5 日曜=6
-while art_day.weekday() >= 5:
-    art_day += timedelta(days=1)
 
-print("芸術鑑賞の日:", art_day)
+#current = date(year, 7, 1)
 
-# =========================
-# 中間テスト期間
-# 芸術鑑賞の前の登校日4日間
-# =========================
 
-midterm_days = []
-
-current = art_day - timedelta(days=1)
-
-while len(midterm_days) < 4:
-
-    # 土日を除外
-    is_weekend = current.weekday() >= 5
-
-    # 祝日を除外
-    is_holiday = jpholiday.is_holiday(current)
-
-    if not is_weekend and not is_holiday:
-        midterm_days.append(current)
-
-    current -= timedelta(days=1)
-
-# 古い順に並べ替え
-midterm_days.reverse()
-
-print("\n1学期中間テスト")
-
-for d in midterm_days:
-    print(d)
-
-# =========================
-# 期末テスト
-# 7月第一週の月〜木
-# =========================
-
-current = date(year, 7, 1)
-
-# 最初の月曜まで進める
-while current.weekday() != 0:
-    current += timedelta(days=1)
-
-final_exam_days = []
-
-for i in range(4):
-    final_exam_days.append(current + timedelta(days=i))
-
-print("\n1学期期末テスト")
-
-for d in final_exam_days:
-    print(d)
-
-def get_duty_person(target_date):
-    if target_date.weekday() >= 5 or jpholiday.is_holiday(target_date):
-        return None
-
-    base_date = date(2026,4,1)
-    current_date = base_date
-    workday_count = 0
-
-    while current_date < target_date.date():
-        if current_date.weekday() <5 and not jpholiday.is_holiday(current_date) and not today ==art_day and today != midterm_days :
-            workday_count +=1
-        current_date += timedelta(days=1)
-
-    return members[workday_count % 8]
-
-person = get_duty_person(today)
-
-if person:
-    print("日直:",person)
-
-#from datetime import datetime, timedelta
-#import time
 import winsound
 
 # =========================
@@ -273,17 +182,22 @@ while True:
             already_done.add(end_key)
 
 
-    now = datetime.now().strftime("%H:%M")
+    now = datetime.now().time()
     state = "放課後です"
 
-    for item in schedule:
+    for i, item in enumerate(schedule):
 
-        start = datetime.strptime(item["start"], "%H:%M")
-        end = datetime.strptime(item["end"], "%H:%M")
+        start = datetime.strptime(item["start"], "%H:%M").time()
+        end = datetime.strptime(item["end"], "%H:%M").time()
 
-        if item["start"] <= now <= item["end"]:
+        if start <= now <= end:
             state = f"{item['name']}の授業中です"
             break
+        if i < len(schedule)-1:
+            next_start = datetime.strptime(schedule[i+1]["start"],"%H:%M").time()
+            if end < now < next_start:
+                state = "休み時間です"
+                break
 
     print(state)
 
