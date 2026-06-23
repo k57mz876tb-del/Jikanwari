@@ -123,11 +123,11 @@ already_done = set()
 # =========================
 
 while True:
-＃    kazuto = 0
+    kazuto = 0
 #while kazuto == 1:
     now = datetime.now().strftime("%H:%M")
     #now = "14:12"
- ＃   kazuto = 1
+    kazuto = 1
     # -----------------
     # 昼休み予鈴
     # -----------------
