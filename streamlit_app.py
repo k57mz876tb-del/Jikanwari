@@ -20,12 +20,6 @@ from datetime import date, timedelta
 year = 2026
 
 
-
-#current = date(year, 7, 1)
-
-
-＃import winsound
-
 # =========================
 # 設定
 # =========================
