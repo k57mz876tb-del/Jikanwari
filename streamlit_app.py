@@ -164,7 +164,6 @@ while True:
         if now == notify_time and start_key not in already_done:
 
             print(f"あと3分で {item['name']} が始まります！")
-            ＃winsound.Beep(1000,1000)
 
             already_done.add(start_key)
 
