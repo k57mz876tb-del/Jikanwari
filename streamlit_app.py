@@ -24,7 +24,7 @@ year = 2026
 #current = date(year, 7, 1)
 
 
-import winsound
+＃import winsound
 
 # =========================
 # 設定
@@ -129,11 +129,11 @@ already_done = set()
 # =========================
 
 while True:
-    kazuto = 0
+＃    kazuto = 0
 #while kazuto == 1:
     now = datetime.now().strftime("%H:%M")
     #now = "14:12"
-    kazuto = 1
+ ＃   kazuto = 1
     # -----------------
     # 昼休み予鈴
     # -----------------
@@ -170,7 +170,7 @@ while True:
         if now == notify_time and start_key not in already_done:
 
             print(f"あと3分で {item['name']} が始まります！")
-            winsound.Beep(1000,1000)
+            ＃winsound.Beep(1000,1000)
 
             already_done.add(start_key)
 
