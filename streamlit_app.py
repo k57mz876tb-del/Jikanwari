@@ -127,7 +127,7 @@ already_done = set()
 while True:
     kazuto = 0
 #while kazuto == 1:
-    now = datetime.now(zoneinfo("Asia/Tokyo")).time().strftime("%H:%M")
+    now = datetime.now(ZoneInfo("Asia/Tokyo")).time().strftime("%H:%M")
     #now = "14:12"
     kazuto = 1
     # -----------------
@@ -177,7 +177,7 @@ while True:
             already_done.add(end_key)
 
 
-    now = datetime.now(zoneinfo("Asia/Tokyo").time()
+    now = datetime.now(ZoneInfo("Asia/Tokyo")).time()
     state = "放課後です"
 
     for i, item in enumerate(schedule):
