@@ -1,6 +1,8 @@
 from datetime import datetime
+from zoneinfo import zoneinfo
 import streamlit as st
-now = datetime.now()
+now = datetime.now(zoneinfo("Asia/Tokyo")).time()
+
 st.write(now)
 
 import time
@@ -8,12 +10,12 @@ alarm_time = "11:40"
 
 
 
-today = datetime.now()
+today = datetime.now(zoneinfo("Asia/Tokyo")).time()
 w_number = today.weekday()
 
-print(w_number)
+st.write(w_number)
 days = ["月","火","水","木","金","土","日",]
-print({days[w_number]})
+st.write({days[w_number]})
 
 
 from datetime import date, timedelta
@@ -32,7 +34,7 @@ FIRST_START = datetime.strptime("08:40", "%H:%M")
 LUNCH_END = datetime.strptime("13:15", "%H:%M")
 
 # 月=0 火=1 水=2 木=3 金=4 土=5 日=6
-today_weekday = datetime.now().weekday()
+today_weekday = datetime.now(zoneinfo("Asia/Tokyo").weekday()
 #today_weekday = 3
 
 # 水曜だけ6限
@@ -105,13 +107,12 @@ else:
 # =========================
 # 今日の予定表示
 # =========================
-
-print("===== 今日の予定 =====")
+st.write("===== 今日の予定 =====")
 
 for item in schedule:
-    print(f"{item['name']} : {item['start']} ～ {item['end']}")
+    st.write(f"{item['name']} : {item['start']} ～ {item['end']}")
 
-print("=====================")
+st.write("=====================")
 
 # =========================
 # 通知済み管理
@@ -126,7 +127,7 @@ already_done = set()
 while True:
     kazuto = 0
 #while kazuto == 1:
-    now = datetime.now().strftime("%H:%M")
+    now = datetime.now(zoneinfo("Asia/Tokyo")).time().strftime("%H:%M")
     #now = "14:12"
     kazuto = 1
     # -----------------
@@ -134,7 +135,7 @@ while True:
     # -----------------
     if now == "13:10" and "lunch_warning" not in already_done:
 
-        print("あと5分で5時間目が始まります！")
+        st.write("あと5分で5時間目が始まります！")
 
         already_done.add("lunch_warning")
 
@@ -143,7 +144,7 @@ while True:
     # -----------------
     if now == "12:55" and "nichoku" not in already_done:
 
-        print("日直面談の時間です！")
+        st.write("日直面談の時間です！")
 
         already_done.add("nichoku")
 
@@ -164,19 +165,19 @@ while True:
         # 3分前通知
         if now == notify_time and start_key not in already_done:
 
-            print(f"あと3分で {item['name']} が始まります！")
+            st.write(f"あと3分で {item['name']} が始まります！")
 
             already_done.add(start_key)
 
         # 終了通知
         if now == item["end"] and end_key not in already_done:
 
-            print(f"{item['name']} が終わりました！")
+            st.write(f"{item['name']} が終わりました！")
 
             already_done.add(end_key)
 
 
-    now = datetime.now().time()
+    now = datetime.now(zoneinfo("Asia/Tokyo").time()
     state = "放課後です"
 
     for i, item in enumerate(schedule):
@@ -193,6 +194,6 @@ while True:
                 state = "休み時間です"
                 break
 
-    print(state)
+    st.write(state)
 
     time.sleep(60)
