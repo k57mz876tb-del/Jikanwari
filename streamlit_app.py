@@ -1,6 +1,7 @@
 from datetime import datetime
+import streamlit as st
 now = datetime.now()
-print(now)
+st.write(now)
 
 import time
 alarm_time = "11:40"
