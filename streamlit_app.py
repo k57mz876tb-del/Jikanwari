@@ -1,6 +1,8 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import streamlit as st
+from streamlit_autorefresh import st_autorefresh
+st_autorefresh(interval=60000, key="refresh")
 
 now = datetime.now(ZoneInfo("Asia/Tokyo")).time()
 
