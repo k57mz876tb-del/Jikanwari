@@ -11,3 +11,8 @@ dependencies = [
 [tool.uv]
 package = false
 
+dependencies = [
+    "streamlit>=1.58.0",
+    "jpholiday",
+    "streamlit-autorefresh",
+]
