@@ -1,7 +1,7 @@
 from datetime import datetime
-from zoneinfo import zoneinfo
+from zoneinfo import ZoneInfo
 import streamlit as st
-now = datetime.now(zoneinfo("Asia/Tokyo")).time()
+now = datetime.now(ZoneInfo("Asia/Tokyo")).time()
 
 st.write(now)
 
@@ -10,7 +10,7 @@ alarm_time = "11:40"
 
 
 
-today = datetime.now(zoneinfo("Asia/Tokyo")).time()
+today = datetime.now(ZoneInfo("Asia/Tokyo")).time()
 w_number = today.weekday()
 
 st.write(w_number)
@@ -34,7 +34,7 @@ FIRST_START = datetime.strptime("08:40", "%H:%M")
 LUNCH_END = datetime.strptime("13:15", "%H:%M")
 
 # 月=0 火=1 水=2 木=3 金=4 土=5 日=6
-today_weekday = datetime.now(zoneinfo("Asia/Tokyo")).weekday()
+today_weekday = datetime.now(ZoneInfo("Asia/Tokyo")).weekday()
 #today_weekday = 3
 
 # 水曜だけ6限
