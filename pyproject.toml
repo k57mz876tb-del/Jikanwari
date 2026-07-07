@@ -10,3 +10,7 @@ dependencies = [
 
 [tool.uv]
 package = false
+
+streamlit
+jpholiday
+streamlit-autorefresh
