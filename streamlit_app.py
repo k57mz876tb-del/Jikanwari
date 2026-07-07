@@ -10,7 +10,7 @@ alarm_time = "11:40"
 
 
 
-today = datetime.now(ZoneInfo("Asia/Tokyo")).time()
+today = datetime.now(ZoneInfo("Asia/Tokyo"))
 w_number = today.weekday()
 
 st.write(w_number)
