@@ -131,76 +131,39 @@ already_done = set()
 # メインループ
 # =========================
 
-while True:
-    kazuto = 0
-#while kazuto == 1:
-    now = datetime.now(ZoneInfo("Asia/Tokyo")).time().strftime("%H:%M")
-    #now = "14:12"
-    kazuto = 1
-    # -----------------
-    # 昼休み予鈴
-    # -----------------
-    if now == "13:10" and "lunch_warning" not in already_done:
+# =========================
+# 現在の状態を判定
+# =========================
 
-        st.write("あと5分で5時間目が始まります！")
+now = datetime.now(ZoneInfo("Asia/Tokyo")).time()
 
-        already_done.add("lunch_warning")
+state = "放課後です"
 
-    # -----------------
-    # 日直面談
-    # -----------------
-    if now == "12:55" and "nichoku" not in already_done:
+for i, item in enumerate(schedule):
 
-        st.write("日直面談の時間です！")
+    start = datetime.strptime(item["start"], "%H:%M").time()
+    end = datetime.strptime(item["end"], "%H:%M").time()
 
-        already_done.add("nichoku")
+    # 授業中
+    if start <= now < end:
+        state = f"{item['name']}の授業中です"
+        break
 
-    # -----------------
-    # 授業通知
-    # -----------------
-    for item in schedule:
+    # 休み時間
+    if i < len(schedule) - 1:
 
-        start_key = item["name"] + "_start"
-        end_key = item["name"] + "_end"
+        next_start = datetime.strptime(
+            schedule[i + 1]["start"], "%H:%M"
+        ).time()
 
-        # 開始3分前
-        notify_time = (
-            datetime.strptime(item["start"], "%H:%M")
-            - timedelta(minutes=3)
-        ).strftime("%H:%M")
-
-        # 3分前通知
-        if now == notify_time and start_key not in already_done:
-
-            st.write(f"あと3分で {item['name']} が始まります！")
-
-            already_done.add(start_key)
-
-        # 終了通知
-        if now == item["end"] and end_key not in already_done:
-
-            st.write(f"{item['name']} が終わりました！")
-
-            already_done.add(end_key)
-
-
-    now = datetime.now(ZoneInfo("Asia/Tokyo")).time()
-    state = "放課後です"
-
-    for i, item in enumerate(schedule):
-
-        start = datetime.strptime(item["start"], "%H:%M").time()
-        end = datetime.strptime(item["end"], "%H:%M").time()
-
-        if start <= now <= end:
-            state = f"{item['name']}の授業中です"
+        if end <= now < next_start:
+            state = "休み時間です"
             break
-        if i < len(schedule)-1:
-            next_start = datetime.strptime(schedule[i+1]["start"],"%H:%M").time()
-            if end < now < next_start:
-                state = "休み時間です"
-                break
 
+
+# =========================
+# 色を決める
+# =========================
 
 if "授業中" in state:
     bg_color = "#dff5e1"
@@ -219,13 +182,16 @@ else:
     text_color = "#555555"
 
 
-# 画面に表示
+# =========================
+# 大きく表示
+# =========================
+
 st.markdown(
     f"""
     <div style="
         background-color: {bg_color};
         color: {text_color};
-        padding: 30px;
+        padding: 40px;
         border-radius: 20px;
         text-align: center;
         font-size: 45px;
@@ -236,7 +202,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-    
-st.write(state)
-
-
