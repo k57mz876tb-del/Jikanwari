@@ -217,25 +217,6 @@ else:
     bg_color = "#eeeeee"
     text_color = "#555555"
 
-
-# 画面に表示
-st.markdown(
-    f"""
-    <div style="
-        background-color: {bg_color};
-        color: {text_color};
-        padding: 30px;
-        border-radius: 20px;
-        text-align: center;
-        font-size: 45px;
-        font-weight: bold;
-    ">
-        {state}
-    </div>
-    """,
-    unsafe_allow_html=True
-)  
-
     
-        st.write(state)
-        time.sleep(60)
+st.write(state)
+time.sleep(60)
