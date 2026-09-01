@@ -201,6 +201,8 @@ while True:
                 state = "休み時間です"
                 break
 
+import streamlit as st
+
 if "授業中" in state:
     bg_color = "#dff5e1"
     text_color = "#267a35"
@@ -217,7 +219,9 @@ else:
     bg_color = "#eeeeee"
     text_color = "#555555"
 
-    st.markdown(
+
+# 画面に表示
+st.markdown(
     f"""
     <div style="
         background-color: {bg_color};
