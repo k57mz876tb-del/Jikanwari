@@ -200,39 +200,7 @@ while True:
                 state = "休み時間です"
                 break
 
-if "授業中" in state:
-    bg_color = "#dff5e1"
-    text_color = "#267a35"
 
-elif "休み時間" in state:
-    bg_color = "#dcecff"
-    text_color = "#2864a8"
-
-elif "昼休み" in state:
-    bg_color = "#fff1cc"
-    text_color = "#9a6800"
-
-else:
-    bg_color = "#eeeeee"
-    text_color = "#555555"
-
-# 画面に表示
-st.markdown(
-    f"""
-    <div style="
-        background-color: {bg_color};
-        color: {text_color};
-        padding: 30px;
-        border-radius: 20px;
-        text-align: center;
-        font-size: 45px;
-        font-weight: bold;
-    ">
-        {state}
-    </div>
-    """,
-    unsafe_allow_html=True
-)
     
 st.write(state)
 
