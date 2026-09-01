@@ -238,6 +238,6 @@ st.markdown(
     unsafe_allow_html=True
 )
     
-    st.write(state)
+st.write(state)
 
     time.sleep(60)
