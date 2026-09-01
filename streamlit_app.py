@@ -201,7 +201,6 @@ while True:
                 state = "休み時間です"
                 break
 
-import streamlit as st
 
 if "授業中" in state:
     bg_color = "#dff5e1"
@@ -239,8 +238,6 @@ st.markdown(
 )
     
 st.write(state)
-
-st.write("あいうえお")
 
 
 time.sleep(60)
