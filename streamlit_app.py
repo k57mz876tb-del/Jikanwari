@@ -11,7 +11,7 @@ st.markdown(
         font-size: 40px;
         text-align: center;
     ">
-        色テスト
+        時間割
     </div>
     """,
     unsafe_allow_html=True
