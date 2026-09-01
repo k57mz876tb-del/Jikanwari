@@ -235,7 +235,23 @@ while True:
             if end < now < next_start:
                 state = "休み時間です"
                 break
+                
+if "授業中" in state:
+    bg_color = CLASS_BG_COLOR
+    text_color = CLASS_TEXT_COLOR
 
-   
+elif "休み時間" in state:
+    bg_color = BREAK_BG_COLOR
+    text_color = BREAK_TEXT_COLOR
+
+elif "昼休み" in state:
+    bg_color = LUNCH_BG_COLOR
+    text_color = LUNCH_TEXT_COLOR
+
+else:
+    bg_color = AFTER_SCHOOL_BG_COLOR
+    text_color = AFTER_SCHOOL_TEXT_COLOR
+
+    
     st.write(state)
     time.sleep(60)
