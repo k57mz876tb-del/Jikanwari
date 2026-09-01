@@ -240,4 +240,7 @@ st.markdown(
     
 st.write(state)
 
+st.write("あいうえお")
+
+
 time.sleep(60)
