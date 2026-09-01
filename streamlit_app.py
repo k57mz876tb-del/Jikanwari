@@ -1,6 +1,34 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import streamlit as st
+
+# =========================
+# 画面デザイン設定
+# =========================
+
+# 授業中
+CLASS_BG_COLOR = "#E8F5E9"
+CLASS_TEXT_COLOR = "#2E7D32"
+
+# 休み時間
+BREAK_BG_COLOR = "#E3F2FD"
+BREAK_TEXT_COLOR = "#1565C0"
+
+# 昼休み
+LUNCH_BG_COLOR = "#FFF3E0"
+LUNCH_TEXT_COLOR = "#EF6C00"
+
+# 放課後
+AFTER_SCHOOL_BG_COLOR = "#F5F5F5"
+AFTER_SCHOOL_TEXT_COLOR = "#555555"
+
+# メイン表示の文字サイズ
+STATE_FONT_SIZE = "45px"
+
+# メイン表示の角丸
+STATE_BORDER_RADIUS = "20px"
+
+
 st.markdown(
     """
     <meta http-equiv="refresh" content="60">
