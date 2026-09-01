@@ -203,3 +203,4 @@ while True:
 
     
     st.write(state)
+    time.sleep(60)
