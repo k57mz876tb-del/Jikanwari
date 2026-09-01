@@ -143,6 +143,14 @@ while True:
     if now == "13:10" and "lunch_warning" not in already_done:
 
         st.write("あと5分で5時間目が始まります！")
+        st.markdown(
+        """
+        <audio autoplay>
+            <source src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" type="audio/ogg">
+        </audio>
+        """,
+        unsafe_allow_html=True
+    )
 
         already_done.add("lunch_warning")
 
@@ -200,14 +208,6 @@ while True:
                 state = "休み時間です"
                 break
 
-    st.markdown(
-            """
-            <audio autoplay>
-            <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
-            </audio>
-            """,
-            unsafe_allow_html=True
-        )
    
     st.write(state)
     time.sleep(60)
