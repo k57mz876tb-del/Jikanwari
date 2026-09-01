@@ -5,8 +5,8 @@ import streamlit as st
 st.markdown(
     """
     <div style="
-        background-color: red;
-        color: white;
+        background-color: white;
+        color: black;
         padding: 30px;
         font-size: 40px;
         text-align: center;
