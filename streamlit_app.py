@@ -253,5 +253,5 @@ else:
     text_color = AFTER_SCHOOL_TEXT_COLOR
 
     
-    st.write(state)
-    time.sleep(60)
+st.write(state)
+time.sleep(60)
