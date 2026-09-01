@@ -200,42 +200,7 @@ while True:
                 state = "休み時間です"
                 break
 
-  # 状態によって色を変える
-if f"{item['name']}の授業中です" in state:
-    bg_color = "#dff5e1"
-    text_color = "#267a35"
-    st.write(state)
 
-elif "休み時間です" in state:
-    bg_color = "#dcecff"
-    text_color = "#2864a8"
-    st.write(state)
-
-elif "昼休みです" in state:
-    bg_color = "#fff1cc"
-    text_color = "#9a6800"
-    st.write(state)
-
-else:
-    bg_color = "#eeeeee"
-    text_color = "#555555"
-    st.write(state)
-
-st.markdown(
-    """
-    <div style="
-        background-color: red;
-        color: white;
-        padding: 30px;
-        text-align: center;
-        font-size: 40px;
-        font-weight: bold;
-    ">
-        色テスト
-    </div>
-    """,
-    unsafe_allow_html=True
-)
     
 st.write(state)
 time.sleep(60)
