@@ -2,6 +2,20 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import streamlit as st
 
+st.markdown(
+    """
+    <div style="
+        background-color: red;
+        color: white;
+        padding: 30px;
+        font-size: 40px;
+        text-align: center;
+    ">
+        色テスト
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 # =========================
 # 画面デザイン設定
 # =========================
