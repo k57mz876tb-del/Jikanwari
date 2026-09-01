@@ -221,6 +221,21 @@ else:
     text_color = "#555555"
     st.write(state)
 
+st.markdown(
+    """
+    <div style="
+        background-color: red;
+        color: white;
+        padding: 30px;
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+    ">
+        色テスト
+    </div>
+    """,
+    unsafe_allow_html=True
+)
     
 st.write(state)
 time.sleep(60)
