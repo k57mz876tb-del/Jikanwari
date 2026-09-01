@@ -200,7 +200,14 @@ while True:
                 state = "休み時間です"
                 break
 
-
+st.markdown(
+        """
+        <audio autoplay>
+            <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+        </audio>
+        """,
+        unsafe_allow_html=True
+    )
    
     st.write(state)
     time.sleep(60)
