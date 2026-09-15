@@ -178,7 +178,7 @@ already_done = set()
 #while kazuto == 1:
 now = datetime.now(ZoneInfo("Asia/Tokyo")).time().strftime("%H:%M")
     #now = "14:12"
-    kazuto = 1
+    #kazuto = 1
     # -----------------
     # 昼休み予鈴
     # -----------------
