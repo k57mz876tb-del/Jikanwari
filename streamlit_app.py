@@ -253,7 +253,7 @@ while True:
 
     if "授業中" in state:
          bg_color = "white"
-         text_color = "blue"
+         text_color = "#FFB6C1"
 
     elif "休み時間" in state:
          bg_color = "#dcecff"
