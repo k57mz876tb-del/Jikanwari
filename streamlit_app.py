@@ -256,15 +256,15 @@ while True:
          text_color = "#FFB6C1"
 
     elif "休み時間" in state:
-         bg_color = "#dcecff"
-         text_color = "#2864a8"
+         bg_color = "#DCECFF"
+         text_color = "#2864A8"
 
     elif "昼休み" in state:
-        bg_color = "#fff1cc"
-        text_color = "#9a6800"
+        bg_color = "#FFF1CC"
+        text_color = "#9A6800"
 
     else:
-        bg_color = "#eeeeee"
+        bg_color = "#EEEEEE"
         text_color = "#555555"
 
 # 画面に表示
