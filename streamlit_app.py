@@ -173,7 +173,7 @@ already_done = set()
 # メインループ
 # =========================
 
-while True:
+#while True:
     kazuto = 0
 #while kazuto == 1:
     now = datetime.now(ZoneInfo("Asia/Tokyo")).time().strftime("%H:%M")
