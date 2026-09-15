@@ -285,6 +285,6 @@ while True:
         unsafe_allow_html=True
     ) 
 
-st.write(state)
-time.sleep(60)
+    st.write(state)
+    time.sleep(60)
     
