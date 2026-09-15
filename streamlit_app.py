@@ -252,8 +252,8 @@ while True:
                 break
 
     if "授業中" in state:
-         bg_color = "white"
-         text_color = "#FFB6C1"
+         bg_color = "FFE4E1"
+         text_color = "#F08080"
 
     elif "休み時間" in state:
          bg_color = "#DCECFF"
