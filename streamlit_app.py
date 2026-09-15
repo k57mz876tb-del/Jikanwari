@@ -260,7 +260,7 @@ while True:
             padding: 30px;
             border-radius: 20px;
             text-align: center;
-            font-size: 45px;
+            font-size: 60px;
             font-weight: bold;
         ">
             {state}
