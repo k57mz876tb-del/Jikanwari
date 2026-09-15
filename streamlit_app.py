@@ -249,6 +249,15 @@ while True:
             next_start = datetime.strptime(schedule[i+1]["start"],"%H:%M").time()
             if end < now < next_start:
                 state = "休み時間です"
+            now_minutes = now.hour * 60 + now.minute
+            next_minutes = (
+                next_start.hour * 60 + next_start.minute
+            )
+
+            if next_minutes - now_minutes <= 3:
+                state = f"あと3分以内で\n{next_item['name']}が始まります！"
+
+                
                 break
 
     if "授業中" in state:
