@@ -258,7 +258,7 @@ for i, item in enumerate(schedule):
 
                     break
 
-    if "授業中" in state:
+if "授業中" in state:
          bg_color = "FFE4E1"
          text_color = "#F08080"
 
