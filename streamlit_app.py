@@ -231,7 +231,7 @@ while True:
                 )
 
                 if next_minutes - now_minutes <= 3:
-                    state = f"休み時間です/nあと3分以内で/n{next_item['name']}が始まります！"
+                    state = f"休み時間です<br>あと3分以内で<br>{next_item['name']}が始まります！"
 
                     break
 
