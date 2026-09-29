@@ -167,7 +167,7 @@ if now_datetime.second >= 30:
 # 秒を0にする
 now_datetime = now_datetime.replace(second=0, microsecond=0)
 
-now = now_datetime.time()
+
     #now = "14:12"
     #kazuto = 1
     # -----------------
