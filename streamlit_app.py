@@ -199,7 +199,7 @@ if now == "12:55" and "nichoku" not in already_done:
     # -----------------
     # 授業通知
     # -----------------
-    for item in schedule:
+for item in schedule:
 
         start_key = item["name"] + "_start"
         end_key = item["name"] + "_end"
