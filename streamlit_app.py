@@ -190,7 +190,7 @@ if now == "13:10" and "lunch_warning" not in already_done:
     # -----------------
     # 日直面談
     # -----------------
-    if now == "12:55" and "nichoku" not in already_done:
+if now == "12:55" and "nichoku" not in already_done:
 
         st.write("日直面談の時間です！")
 
