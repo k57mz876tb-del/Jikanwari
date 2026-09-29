@@ -236,7 +236,7 @@ now_datetime = now_datetime.replace(second=0, microsecond=0)
 now = now_datetime.time()
 state = "放課後です"
 
-    for i, item in enumerate(schedule):
+for i, item in enumerate(schedule):
 
         start = datetime.strptime(item["start"], "%H:%M").time()
         end = datetime.strptime(item["end"], "%H:%M").time()
