@@ -224,7 +224,7 @@ for item in schedule:
 
             already_done.add(end_key)
 
-    now_datetime = datetime.now(ZoneInfo("Asia/Tokyo"))
+now_datetime = datetime.now(ZoneInfo("Asia/Tokyo"))
 
 # 秒を四捨五入
 if now_datetime.second >= 30:
