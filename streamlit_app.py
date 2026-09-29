@@ -293,5 +293,5 @@ st.markdown(
     ) 
 
     #st.write(state)
-    time.sleep(60)
+time.sleep(60)
     
