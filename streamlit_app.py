@@ -234,7 +234,7 @@ if now_datetime.second >= 30:
 now_datetime = now_datetime.replace(second=0, microsecond=0)
 
 now = now_datetime.time()
-    state = "放課後です"
+state = "放課後です"
 
     for i, item in enumerate(schedule):
 
