@@ -173,7 +173,7 @@ now = now_datetime.time()
     # -----------------
     # 昼休み予鈴
     # -----------------
-    if now == "13:10" and "lunch_warning" not in already_done:
+if now == "13:10" and "lunch_warning" not in already_done:
 
         st.write("あと5分で5時間目が始まります！")
         st.markdown(
