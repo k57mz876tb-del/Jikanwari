@@ -26,7 +26,12 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-now = datetime.now(ZoneInfo("Asia/Tokyo")).time()
+now = datetime.now(ZoneInfo("Asia/Tokyo"))
+
+if now.second >= 30:
+    now = now + timedelta(minutes=1)
+
+now = now.replace(second=0, microsecond=0).time()
 
 st.write(now)
 
@@ -153,7 +158,16 @@ while True:
 #kazuto = 1
 
 #while kazuto == 1:
-    now = datetime.now(ZoneInfo("Asia/Tokyo")).time().strftime("%H:%M")
+    now_datetime = datetime.now(ZoneInfo("Asia/Tokyo"))
+
+# 秒を四捨五入
+if now_datetime.second >= 30:
+    now_datetime += timedelta(minutes=1)
+
+# 秒を0にする
+now_datetime = now_datetime.replace(second=0, microsecond=0)
+
+now = now_datetime.time()
     #now = "14:12"
     #kazuto = 1
     # -----------------
@@ -210,7 +224,16 @@ while True:
 
             already_done.add(end_key)
 
-    now = datetime.now(ZoneInfo("Asia/Tokyo")).time()
+    now_datetime = datetime.now(ZoneInfo("Asia/Tokyo"))
+
+# 秒を四捨五入
+if now_datetime.second >= 30:
+    now_datetime += timedelta(minutes=1)
+
+# 秒を0にする
+now_datetime = now_datetime.replace(second=0, microsecond=0)
+
+now = now_datetime.time()
     state = "放課後です"
 
     for i, item in enumerate(schedule):
