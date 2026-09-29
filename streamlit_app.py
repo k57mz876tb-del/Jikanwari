@@ -266,24 +266,24 @@ for i, item in enumerate(schedule):
 
             break
 
-if "授業中" in state:
+    if "授業中" in state:
          bg_color = "FFE4E1"
          text_color = "#F08080"
 
-elif "休み時間" in state:
+    elif "休み時間" in state:
          bg_color = "#DCECFF"
          text_color = "#2864A8"
 
-elif "昼休み" in state:
+    elif "昼休み" in state:
         bg_color = "#FFF1CC"
         text_color = "#9A6800"
 
-else:
+    else:
         bg_color = "#EEEEEE"
         text_color = "#555555"
 
 # 画面に表示
-st.markdown(
+    st.markdown(
         f"""
         <div style="
             background-color: {bg_color};
@@ -301,5 +301,5 @@ st.markdown(
     ) 
 
     #st.write(state)
-time.sleep(60)
+    time.sleep(60)
     
