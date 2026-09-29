@@ -275,7 +275,7 @@ else:
         text_color = "#555555"
 
 # 画面に表示
-    st.markdown(
+st.markdown(
         f"""
         <div style="
             background-color: {bg_color};
