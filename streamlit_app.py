@@ -238,25 +238,33 @@ state = "放課後です"
 
 for i, item in enumerate(schedule):
 
-        start = datetime.strptime(item["start"], "%H:%M").time()
-        end = datetime.strptime(item["end"], "%H:%M").time()
+    start = datetime.strptime(item["start"], "%H:%M").time()
+    end = datetime.strptime(item["end"], "%H:%M").time()
 
-        if start <= now <= end:
-            state = f"{item['name']}の授業中です"
-            break
-        if i < len(schedule)-1:
-            next_start = datetime.strptime(schedule[i+1]["start"],"%H:%M").time()
-            if end < now < next_start:
+    # 授業中
+    if start <= now < end:
+        state = f"{item['name']}の授業中です"
+        break
+
+    # 休み時間
+    if i < len(schedule) - 1:
+        next_start = datetime.strptime(
+            schedule[i + 1]["start"], "%H:%M"
+        ).time()
+
+        if end <= now < next_start:
+
+            now_minutes = now.hour * 60 + now.minute
+            next_minutes = next_start.hour * 60 + next_start.minute
+
+            # 3分以内
+            if next_minutes - now_minutes <= 3:
+                next_item = schedule[i + 1]
+                state = f"休み時間です<br>あと3分以内で<br>{next_item['name']}が始まります！"
+            else:
                 state = "休み時間です"
-                now_minutes = now.hour * 60 + now.minute
-                next_minutes = (
-                    next_start.hour * 60 + next_start.minute
-                )
 
-                if next_minutes - now_minutes <= 3:
-                    state = f"休み時間です<br>あと3分以内で<br>{next_item['name']}が始まります！"
-
-                    break
+            break
 
 if "授業中" in state:
          bg_color = "FFE4E1"
